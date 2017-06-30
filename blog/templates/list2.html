@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>list</title>
+</head>
+<body>
+  <ul>
+    <li>Chem_ID | Name | Date | PMID | Properties | Type | Effect_to_PrP | Effect_to_Diseases_progression | Materials | Information_of_Materials | Treatement | Binding_site | PubChem | email | Date of preparation</li>
+  {% for submit in submitList %}
+    <li><a href="/view/{{submit.id}}">{{ submit.Chem_ID }}</a> | {{ submit.Name }} | {{ submit.Date}} | {{ submit.PMID}} | {{ submit.Properties}} | {{ submit.Type}} | {{ submit.Effect_to_PrP}} | {{ submit.Effect_to_Diseases_progression}} | {{ submit.Materials}} | {{ submit.Information_of_Materials}} | {{ submit.Treatement}} | {{ submit.Binding_site}} | {{ submit.PubChem}} | {{ submit.email}} | {{ submit.cdate|date:"D d M Y"}}</li>
+  {% endfor %}
+  </ul>
+</body>
+</html>

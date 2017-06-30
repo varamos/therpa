@@ -1,0 +1,131 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="{% static 'site.css' %}"/>
+</style>
+
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.12.4.js"> </script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"> </script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"> </script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js"> </script>
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"> </script>
+<script type="text/javascript" language="javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/pdfmake.min.js"> </script>
+<script type="text/javascript" language="javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/vfs_fonts.js"> </script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"> </script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.print.min.js"> </script>
+<script src="{% static 'jquery.csrf.js' %}"></script>
+
+
+
+
+
+
+
+<script type="text/javascript" class="init">
+
+
+$(document).ready(function() {
+    $('#downloads').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'print'
+        ]
+    } );
+} );
+
+</script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+
+          <table id="downloads" class="table table-striped table-hover table-bordered">
+
+            <thead>
+                <tr>
+                  <th>Line_no.</th>
+                  <th>Chem_ID</th>
+                  <th>Name</th>
+                  <th>Date</th>
+                  <th>PMID</th>
+                  <th>Properties</th>
+                  <th>Type</th>
+                  <th>Effect_to_PrP</th>
+                  <th>Effect_to_Diseases_progression</th>
+                  <th>Materials</th>
+                  <th>Information_of_Materials</th>
+                  <th>Treatement</th>
+                  <th>Binding_site</th>
+                  <th>PubChem</th>
+                </tr>
+            </thead>
+
+<!--Code Add-->
+<tfoot>
+            <tr>
+              <th>Line_no.</th>
+              <th>Chem_ID</th>
+              <th>Name</th>
+              <th>Date</th>
+              <th>PMID</th>
+              <th>Properties</th>
+              <th>Type</th>
+              <th>Effect_to_PrP</th>
+              <th>Effect_to_Diseases_progression</th>
+              <th>Materials</th>
+              <th>Information_of_Materials</th>
+              <th>Treatement</th>
+              <th>Binding_site</th>
+              <th>PubChem</th>
+            </tr>
+</tfoot>
+<!--Code Add End-->
+
+
+            <tbody>
+                {% include "blog/_downloads.html" %}
+            </tbody>
+          </table>
+
+    </div>
+</div>
+
+
+<script>
+
+//Code Add
+$(document).ready(function() {
+
+
+// Setup - add a text input to each footer cell
+$('#downloads tfoot th').each( function () {
+    var title = $(this).text();
+    $(this).html( '<input type="text" placeholder="Search" />' );
+} );
+
+// DataTable
+var table = $('#downloads').DataTable();
+
+// Apply the search
+table.columns().every( function () {
+    var that = this;
+
+    $( 'input', this.footer() ).on( 'keyup change', function () {
+        if ( that.search() !== this.value ) {
+            that
+                .search( this.value )
+                .draw();
+        }
+    } );
+} );
+} );
+//Code Add End
+
+</script>
+
+</body>
+</html>
+{% endblock content %}

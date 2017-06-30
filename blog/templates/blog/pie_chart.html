@@ -1,0 +1,194 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<!doctype html>
+<html>
+<head>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+
+  <div id="container" style="min-width: 620px; max-width: 1200px; height: 800px; margin: 0 auto"></div>
+
+</head>
+
+<body>
+
+    <script type="text/javascript">
+    // Create the chart
+          Highcharts.chart('container', {
+              chart: {
+                  type: 'pie'
+              },
+              title: {
+                  text: 'Materials of experiments'
+              },
+              subtitle: {
+                  text: 'Click the slices to view sub-materials.'
+              },
+              plotOptions: {
+                  series: {
+                      dataLabels: {
+                          enabled: true,
+                          format: '<span style="font-size:15px">{point.name}: {point.y:.0f}</span>'
+                      }
+                  }
+              },
+
+              tooltip: {
+                  headerFormat: '<span style="font-size:15px">{series.name}</span><br>',
+                  pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b> of total<br/>'
+              },
+              series: [{
+                  name: 'Materials',
+                  colorByPoint: true,
+                  data: [{
+                      name: 'human',
+                      y: 73,
+                      drilldown: 'human'
+                  }, {
+                      name: 'hamster',
+                      y: 30,
+                      drilldown: 'hamster'
+                  }, {
+                      name: 'mouse',
+                      y: 143,
+                      drilldown: 'mouse'
+                  }, {
+                      name: 'rat',
+                      y: 5,
+                      drilldown: 'rat'
+                  }, {
+                      name: 'elk',
+                      y: 4,
+                      drilldown: 'elk'
+                  }, {
+                      name: 'ewes',
+                      y: 1,
+                      drilldown: 'ewes'
+                  }, {
+                      name: 'deer',
+                      y: 1,
+                      drilldown: 'deer'
+                  }, {
+                      name: 'sheep',
+                      y: 5,
+                      drilldown: 'sheep'
+                  }, {
+                      name: 'bovine',
+                      y: 1,
+                      drilldown: 'bovine'
+                  }, {
+                      name: 'etc',
+                      y: 3,
+                      drilldown: null
+                  }]
+              }],
+              drilldown: {
+                  series: [{
+                      name: 'human',
+                      id: 'human',
+                      data: [
+                          ['host', 32],
+                          ['cells', 13],
+                          ['tissue', 0],
+                          ['rPrP', 26],
+                          ['PrPSc', 2],
+                          ['etc', 0]
+                      ]
+                  }, {
+                      name: 'hamster',
+                      id: 'hamster',
+                      data: [
+                          ['host', 16],
+                          ['cells', 2],
+                          ['tissue', 6],
+                          ['rPrP', 5],
+                          ['PrPSc', 1],
+                          ['etc', 0]
+                      ]
+                  }, {
+                      name: 'mouse',
+                      id: 'mouse',
+                      data: [
+                          ['host', 65],
+                          ['cells', 62],
+                          ['tissue', 3],
+                          ['rPrP', 13],
+                          ['PrPSc', 0],
+                          ['etc', 0]
+                      ]
+                  }, {
+                      name: 'rat',
+                      id: 'rat',
+                      data: [
+                          ['host', 0],
+                          ['cells', 0],
+                          ['tissue', 5],
+                          ['rPrP', 0],
+                          ['PrPSc', 0],
+                          ['etc', 0]
+                      ]
+                  }, {
+                      name: 'elk',
+                      id: 'elk',
+                      data: [
+                        ['host', 0],
+                        ['cells', 0],
+                        ['tissue', 4],
+                        ['rPrP', 0],
+                        ['PrPSc', 0],
+                        ['etc', 0]
+                    ]
+                  }, {
+                      name: 'ewes',
+                      id: 'rat',
+                      data: [
+                          ['host', 1],
+                          ['cells', 0],
+                          ['tissue', 0],
+                          ['rPrP', 0],
+                          ['PrPSc', 0],
+                          ['etc', 0]
+                      ]
+                    }, {
+                        name: 'deer',
+                        id: 'deer',
+                        data: [
+                            ['host', 0],
+                            ['cells', 0],
+                            ['tissue', 1],
+                            ['rPrP', 0],
+                            ['PrPSc', 0],
+                            ['etc', 0]
+                        ]
+                      }, {
+                          name: 'sheep',
+                          id: 'sheep',
+                          data: [
+                              ['host', 2],
+                              ['cells', 2],
+                              ['tissue', 1],
+                              ['rPrP', 0],
+                              ['PrPSc', 0],
+                              ['etc', 0]
+                          ]
+                        }, {
+                            name: 'bovine',
+                            id: 'bovine',
+                            data: [
+                                ['host', 1],
+                                ['cells', 0],
+                                ['tissue', 0],
+                                ['rPrP', 0],
+                                ['PrPSc', 0],
+                                ['etc', 0]
+                            ]
+
+                  }]
+              }
+          });
+    </script>
+</body>
+</html>
+{% endblock content %}

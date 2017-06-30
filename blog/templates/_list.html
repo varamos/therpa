@@ -1,0 +1,50 @@
+{% for submit in submitList %}
+<tr>
+    <td>
+        {{ submit.id }}
+    </td>
+    <td>
+        {{ submit.Name }}
+    </td>
+    <td>
+        {{ submit.Date }}
+    </td>
+    <td>
+        <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term={{submit.PMID}}" target="_blank">{{ submit.PMID }}
+    </td>
+    <td>
+        {{ submit.Properties }}
+    </td>
+    <td>
+        {{ submit.Type }}
+    </td>
+    <td>
+        {{ submit.Effect_to_PrP }}
+    </td>
+    <td>
+        {{ submit.Effect_to_Diseases_progression }}
+    </td>
+    <td>
+        {{ submit.Materials }}
+    </td>
+    <td>
+        {{ submit.Information_of_Materials }}
+    </td>
+    <td>
+        {{ submit.Treatement }}
+    </td>
+    <td>
+        {{ submit.Binding_site }}
+    </td>
+    <td>
+        <a href="https://www.ncbi.nlm.nih.gov/pccompound?term={{ submit.PubChem}}" target="_blank">{{ submit.PubChem }}
+    </td>
+    <td>
+        {{ submit.email }}
+    </td>
+    <td>
+        {{ submit.cdate|date:"D d M Y" }}
+    </td>
+
+</tr>
+{% endfor %}

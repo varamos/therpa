@@ -1,0 +1,46 @@
+{% for post in post_list %}
+<tr id="post-{{post.id }}">
+    <td>
+        {{ post.id }}
+    </td>
+    <td>
+        {{ post.Chem_ID }}
+    </td>
+    <td>
+        {{ post.Name }}
+    </td>
+    <td>
+        {{ post.Date }}
+    </td>
+    <td>
+        <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term={{post.PMID}}" target="_blank">{{ post.PMID }}</a>
+    </td>
+    <td>
+        {{ post.Properties }}
+    </td>
+    <td>
+        {{ post.Type }}
+    </td>
+    <td>
+        {{ post.Effect_to_PrP }}
+    </td>
+    <td>
+        {{ post.Effect_to_Diseases_progression }}
+    </td>
+    <td>
+        {{ post.Materials }}
+    </td>
+    <td>
+        {{ post.Information_of_Materials }}
+    </td>
+    <td>
+        {{ post.Treatement }}
+    </td>
+    <td>
+        {{ post.Binding_site }}
+    </td>
+    <td>
+        <a href="https://www.ncbi.nlm.nih.gov/pccompound?term={{post.PubChem}}" target="_blank">{{ post.PubChem }}</a>
+    </td>
+</tr>
+{% endfor %}

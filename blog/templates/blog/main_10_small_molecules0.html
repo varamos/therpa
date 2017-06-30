@@ -1,0 +1,137 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id='Description'>Main 10 small molecules which having been reserched for the prion diseases</title>
+</head>
+ <body>
+    <b><font size= 6>Main 10 small molecules which having been reserched for the prion diseases</font></b><br><br><br></br>
+    <meta name="description" content="Main 10 small molecules which having been reserched for the prion diseases" />
+    <link rel="stylesheet" href="../../static/css/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="../../statoc/css/scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxdraw.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxchart.core.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxgrid.pager.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxgrid.filter.js"></script>
+    <script type="text/javascript" src="../../static/css/jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="../../static/css/scripts/demos.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // prepare chart data as an array
+            var sampleData = [
+                    { Data: 'Cu2+', PrPSc_down_regulation: 6, PrPSc_up_regulation: 1, accelerates_disease_progression: 3, prolong_survivial_times: 3, reduce_neurotoxicity: 1, mediate_neurotoxicity: 1, etc: 9 },
+                    { Data: 'quinacrine', PrPSc_down_regulation: 5, PrPSc_up_regulation: 0, accelerates_disease_progression: 0, prolong_survivial_times: 0, reduce_neurotoxicity: 0, mediate_neurotoxicity: 0, etc: 4 },
+                    { Data: 'cpd-B', PrPSc_down_regulation: 3, PrPSc_up_regulation: 0, accelerates_disease_progression: 0, prolong_survivial_times: 4, reduce_neurotoxicity: 0, mediate_neurotoxicity: 0, etc: 0 },
+                    { Data: 'Mn2+', PrPSc_down_regulation: 1, PrPSc_up_regulation: 1, accelerates_disease_progression: 1, prolong_survivial_times: 1, reduce_neurotoxicity: 0, mediate_neurotoxicity: 0, etc: 3 },
+                    { Data: 'simvastatin', PrPSc_down_regulation: 1, PrPSc_up_regulation: 0, accelerates_disease_progression: 0, prolong_survivial_times: 3, reduce_neurotoxicity: 1, mediate_neurotoxicity: 0, etc: 2 },
+                    { Data: 'Congo_red_and_anloques', PrPSc_down_regulation: 5, PrPSc_up_regulation: 1, accelerates_disease_progression: 0, prolong_survivial_times: 0, reduce_neurotoxicity: 0, mediate_neurotoxicity: 0, etc: 0 },
+                    { Data: 'glimepiride', PrPSc_down_regulation: 2, PrPSc_up_regulation: 0, accelerates_disease_progression: 0, prolong_survivial_times: 0, reduce_neurotoxicity: 1, mediate_neurotoxicity: 0, etc: 2 },
+                    { Data: 'pentosan_polysulfate', PrPSc_down_regulation: 2, PrPSc_up_regulation: 0, accelerates_disease_progression: 0, prolong_survivial_times: 1, reduce_neurotoxicity: 0, mediate_neurotoxicity: 0, etc: 2 },
+                    { Data: 'suramin', PrPSc_down_regulation: 2, PrPSc_up_regulation: 0, accelerates_disease_progression: 0, prolong_survivial_times: 2, reduce_neurotoxicity: 0, mediate_neurotoxicity: 0, etc: 0 },
+                    { Data: 'quinine', PrPSc_down_regulation: 0, PrPSc_up_regulation: 0, accelerates_disease_progression: 0, prolong_survivial_times: 3, reduce_neurotoxicity: 0, mediate_neurotoxicity: 0, etc: 1 }
+            ];
+            // prepare jqxChart settings
+            var settings = {
+                title: "Main 10 small molecules which having been reserched for the prion diseases",
+                description: "Main 10 small molecules",
+                enableAnimations: true,
+                showLegend: true,
+                padding: { left: 30, top: 5, right: 5, bottom: 5 },
+                titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
+                source: sampleData,
+                xAxis:
+                    {
+                        dataField: 'Data',
+                        gridLines: { visible: true }
+                    },
+                colorScheme: 'scheme01',
+                seriesGroups:
+                    [
+                        {
+                            type: 'column',
+                            columnsGapPercent: 5,
+                            seriesGapPercent: 0,
+                            valueAxis:
+                            {
+                                visible: true,
+                                unitInterval: 1,
+                                minValue: 0,
+                                maxValue: 15,
+                                title: { text: 'Time in minutes' }
+                            },
+                            series: [
+                                    {dataField: 'PrPSc_down_regulation', displayText: 'PrPSc_down_regulation' },
+                                    {dataField: 'prolong_survivial_times', displayText: 'prolong_survivial_times' },
+                                    {dataField: 'reduce_neurotoxicity', displayText: 'reduce_neurotoxicity' },
+                                    {dataField: 'PrPSc_up_regulation', displayText: 'PrPSc_up_regulation' },
+                                    {dataField: 'accelerates_disease_progression', displayText: 'accelerates_disease_progression' },
+                                    {dataField: 'mediate_neurotoxicity', displayText: 'mediate_neurotoxicity' },
+                                    {dataField: 'etc', displayText: 'etc' }
+                            ]
+                        }
+                    ]
+            };
+            // setup the chart
+            $('#jqxChart').jqxChart(settings);
+            var adapter = new $.jqx.dataAdapter({
+                datafields: [
+                    { name: "Data", type: "string" },
+                    { name: "PrPSc_down_regulation", type: "number" },
+                    { name: "PrPSc_up_regulation", type: "number" },
+                    { name: "accelerates_disease_progression", type: "number" },
+                    { name: "prolong_survivial_times", type: "number" },
+                    { name: "reduce_neurotoxicity", type: "number" },
+                    { name: "mediate_neurotoxicity", type: "number" },
+                    { name: "etc", type: "number" }
+                ],
+                localdata: sampleData,
+                datatype: 'array'
+            });
+            $("#jqxGrid").jqxGrid({
+                width: 1500,
+                height: 232,
+                filterable: true,
+                showfilterrow: true,
+                source: adapter,
+                columns:
+                [
+                    { text: "Main 10 small_molecules", width: '30%', datafield: "Data", filteritems: ["Cu2+", "quinacrine", "cpd-B", "Mn2+", "simvastatin", "Congo_red_and_anloques", "glimepiride", "pentosan_polysulfate", "suramin", "quinine"], filtertype: "checkedlist" },
+                    { text: "PrPSc_down_regulation", width: '10%', datafield:"PrPSc_down_regulation" },
+                    { text: "PrPSc_up_regulation", width: '10%', datafield:"PrPSc_up_regulation" },
+                    { text: "accelerates_disease_progression", width: '10%', datafield:"accelerates_disease_progression" },
+                    { text: "prolong_survivial_times", width: '10%', datafield:"prolong_survivial_times" },
+                    { text: "reduce_neurotoxicity", width: '10%', datafield:"reduce_neurotoxicity" },
+                    { text: "mediate_neurotoxicity", width: '10%', datafield:"mediate_neurotoxicity" },
+                    { text: "etc", width: '10%', datafield:"etc" }
+                ]
+            });
+            $("#jqxGrid").on('filter', function () {
+                var rows = $("#jqxGrid").jqxGrid('getrows');
+                var chart = $('#jqxChart').jqxChart('getInstance');
+                chart.source = rows;
+                chart.update();
+            });
+        });
+    </script>
+ </body>
+
+<body class='default'>
+    <div id="jqxGrid"></div>
+    <div id='jqxChart' style="margin-top: 50px; width: 1500px; height: 400px; position: relative; left: 5px; top: 0px;">
+    </div>
+    <div class="example-description">
+</body>
+
+
+</html>
+{% endblock content %}

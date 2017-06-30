@@ -1,0 +1,27 @@
+/* Ensure that the demo table scrolls */
+    th, td { white-space: nowrap; }
+    div.dataTables_wrapper {
+        margin: 0 auto;
+    }
+
+    div.container {
+        width: 80%;
+    }
+
+
+
+    body {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+
+    tfoot input {
+
+            width: 100%;
+
+            padding: 30px;
+
+            box-sizing: border-box;
+
+    }

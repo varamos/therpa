@@ -1,0 +1,153 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html>
+
+<link href="{% static 'mfb.css' %}" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<script src="{% static 'mfb.js' %}"></script>
+
+
+<body>
+	<div class="container">
+
+		<div class="blog-header">
+			<h1 class="blog-title"><font size="15px"><b>Background</b></font></h1>
+			<p class="lead blog-description"><font size= "5px" color=red> <b>THER</b></font>apeutic molecules database that is
+				<font size= "5px" color=red><b>P</b></font>rion diseases-<font size= "5px" color=red><b>A</b></font>ssociated <font size= "5px" color=red><b>(THERPA)</b></font></p>
+		</div>
+
+		<div class="row">
+
+			<div class="col-sm-8 blog-main">
+
+				<div class="blog-post">
+					<h4 class="blog-post-title"><a NAME="what" style="text-decoration:none"><b>What is THERPA</b></a></h4></div>
+					<div clas="well">
+						<b>Background:</b> Prion diseases (PrDs) are caused by abnormal accumulation of misfolded prion
+						protein in the brain tissue. Small molecules have been tried to inhibit aggregation of misfolded prion protein and to treat PrDs.
+						 Collecting information, records and integrated interpretation of these small molecules are important to better understand
+						  the complicated mechanisms of PrDs and to identify new treatments. To support such studies, the THERPA (therpa.pythonanywhere.com,
+							 as a test web-based database) was developed.<br><br />
+						<b>About the THERPA:</b> The THERPA is a public website and small molecules database that supports for researchers who studies PrDs. The THERPA collects information from public sources and from the Pathway studio software. The THERPA includes data such as treatement concentration, amount, researched species, roles to PrP and PrD progression, that are useful for therapeutic study against PrDs. The site also includes charts, and treemaps for understanding characteristics of small molecules easily and analyzing the small molecules data. All data including detail information of small molecules and several charts and graphs can be found on the navigation bar on the top in the main page of the THERPA website.
+						<br><br>
+						The THERPA is a joint effort among div. Zoonoses, div. Bio-Medical Informatics in <a href="http://www.nih.go.kr/NIH/eng/main.jsp" target="_blank">Korea National Institute of Health</a> and the laboratory of bioinformatics and population genetics (<a href="http://biopop.snu.ac.kr/" target="_blank">BIOPOP</a>) in Seoul national university.
+						</br>
+				</div><!-- /.blog-post -->
+
+			<br><br></br>
+				<div class="blog-post">
+					<h4 class="blog-post-title"><a name="process" style="text-decoration:none"><b>Process for screening small molecules related to PrP and/or PrD progression</b></a></h4>
+					<p class="blog-post-meta">All small molecules listed in the DB are selected by following step.</p>
+
+					<p><img width="670.8px" height="620.4px" src="{% static 'image/figure 1.2.png' %}"></p>
+				</div><!-- /.blog-post -->
+				<br><br />
+				<div class="blog-post">
+					<h4 class="blog-post-title"><a name="data" style="text-decoration:none"><b>Data information</b></a></h4>
+					<p><strong><em>Main table</em></strong> : Detailed information (<a href="#glossary">see <em>Glossaries of terms</em></a>) for the 114 small molecules is listed and summarized.
+						The data are classified into 14 categories, and all categories can be filtered according to selected terms in each search field.
+					  Articles (abstracts or full articles) are listed according to the PMID. The chemical structures of each small molecule can be observed by clicking the PubChem column.</p>
+
+					<p><strong><em>Materials for experiments</em></strong> : A Table and a chart are consists roles and functions to PrP and/or PrDs using of the most 10 numerously researched small molecules for PrDs.</p>
+					<p><strong><em>Treemap</em></strong> : Tree-structured data for roles of the 99 small molecules to PrP and/or PrDs are constructed. Each branch of the tree is given a rectangle,
+						 which is then tiled with smaller rectangles representing sub-branches. Each branch mean role of small molecules to PrP and/or PrDs progression.
+							First sub-branch means that small molecules included in each branch. Second sub-branch of first sub-branch means that PMID which described roles of each small molecule.
+							 The small molecules treemap let us understand easily what kinds of roles of the small molecules have been majorly researched.</p>
+					<p><strong><em>File export</em></strong> : All data or filtered data can be downloaded as CSV, EXCEL or PDF files. Copy, print also available.</p>
+					<p><strong><em>Submit data</em></strong> : Users can upload a data followed by prescribed form. The data can be shown in <em>List for submitted data</em>.</p>
+					<p><strong><em>List for submitted data</em></strong> : All submitted data by users can be seen here.</p>
+
+				</div><!-- /.blog-post -->
+				<br />
+				<div class="blog-post">
+					<h4 class="blog-post-title"><a name ="glossary" style="text-decoration:none"><b>Glossaries of terms</b></a></h4>
+					<blockquote><font size=2 color=gray><p><b>THERPA_ID</b> : 'THERPA_ID' stands for the 114 small molecules identifier.</p>
+					<p><b>Name</b>: 'Name' stands for general name of each small molecules</p>
+					<p><b>Date</b> : Accepted or published date (years and month) of each article</p>
+					<p><b>PMID</b> : Pubmed identifier (https://www.ncbi.nlm.nih.gov/pubmed) of each article. And can enter if click the ID</p>
+					<p><b>Properties</b> : An information of each small molecules is described here.</p>
+					<p><b>Type</b> : A role to PrP and/or PrDs progression is described here.</p>
+					<p><b>Effect_to_PrP</b> : An information of small molecule role to prion protein or abnormal form of prion protein is described here</p>
+					<p><b>Effect_to_Diseases_progression</b> : An information of small molecule role to progression of prion diseases.</p>
+					<p><b>Materials</b> : An information of materials such as species, cells or tissues in the article to confirm roles of small molecules</p>
+					<p><b>Information_of_Materials</b> : A detail information of each material</p>
+					<p><b>Treatement</b> : An information of treated amount and methods of small molecule in the article</p>
+					<p><b>Binding_site</b> : A binding information of small moelcues to the prion protein</p>
+					<p><b>PubChem</b> : If you click each column, can see detatil information of each small molecules.
+						 Click the name of small molecules. and can enter the database of PubChem.</p></font></blockquote>
+
+				</div><!-- /.blog-post -->
+
+				<div class="blog-post">
+					<h4 class="blog-post-title"><a name ="changes" style="text-decoration:none" color = "black"><b>Changes</b></a></h4>
+					<blockquote><font size=2 color=gray><p><b>None</b> </p>
+					</font></blockquote>
+				</div>
+
+			</div><!-- /.blog-main -->
+
+
+		</div><!-- /.row -->
+
+	</div><!-- /.container -->
+
+</body>
+
+
+
+
+
+<!-- http://www.cssscript.com/material-inspired-floating-popup-menu/ -->
+<!-- mfb-component–br: position classes: mfb-component–tl, mfb-component–br, mfb-component–tr, mfb-component–bl -->
+<!-- mfb-zoomin: animations: mfb-zoomin, mfb-slidein, mfb-slidein-spring and mfb-fountain -->
+<!-- data-mfb-toggle=”hover”: toggle event. Change to click to open the menu by click instead. -->
+
+<ul id="menu" class="mfb-component--bl mfb-zoomin" data-mfb-toggle="hover">
+  <li class="mfb-component__wrap">
+    <a href="#changes" data-mfb-label="Changes" class="mfb-component__button--main"><br />
+      <i class="mfb-component__main-icon--resting fa fa-list-ul"></i>
+      <i class="mfb-component__main-icon--active fa fa-exchange"></i>
+    </a>
+    <ul class="mfb-component__list">
+      <li>
+        <a href="#glossary" data-mfb-label="Glossary of terms used in THERPA" class="mfb-component__button--child">
+          <font size="1"><br /><center><i class="fa fa-file-word-o fa-3x"> </i></center></font>
+        </a>
+      </li>
+      <li>
+        <a href="#data" data-mfb-label="Data information" class="mfb-component__button--child">
+          <font size="1"><br /><center><i class="fa fa-info-circle fa-3x"> </i></center></font>
+        </a>
+      </li>
+
+      <li>
+        <a href="#process" data-mfb-label="Process of searching small molecules related with PrP and/or PrDs progression" class="mfb-component__button--child">
+          <font size="1"><br /><center><i class="fa fa-arrow-right fa-3x"> </i></center></font>
+        </a>
+      </li>
+      <li>
+        <a href="#what" data-mfb-label="What is THERPA" class="mfb-component__button--child">
+          <font size="1"><br /><center><i class="fa fa-database fa-3x"> </i></center></font>
+        </a>
+      </li>
+
+
+
+
+    </ul>
+  </li>
+</ul>
+<footer class="blog-footer"><center>
+	<p>
+		<a href="http://127.0.0.1:8000/about/">Back to top</a>
+	</p>
+</center></footer>
+
+
+</html>
+{% endblock content %}

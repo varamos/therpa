@@ -1,0 +1,115 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load staticfiles %}
+
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="{% static 'site.css' %}"/>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{% static 'jquery.csrf.js' %}"></script>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+
+              <table id="list" class="table table-striped table-hover table-bordered">
+
+                <thead>
+                    <tr>
+                      <th>Submit_ID</th>
+                      <th>Name</th>
+                      <th>Date</th>
+                      <th>PMID</th>
+                      <th>Properties</th>
+                      <th>Types</th>
+                      <th>Effect_to_PrP</th>
+                      <th>Effect_to_Diseases_progression</th>
+                      <th>Materials</th>
+                      <th>Information_of_Materials</th>
+                      <th>Treatement</th>
+                      <th>Binding_sites</th>
+                      <th>PubChem</th>
+                      <th>Email or ID</th>
+                      <th>Date of preparation</th>
+                    </tr>
+                </thead>
+
+		<!--Code Add-->
+		<tfoot>
+            		<tr>
+                  <th>Submit_ID</th>
+                  <th>Name</th>
+                  <th>Date</th>
+                  <th>PMID</th>
+                  <th>Properties</th>
+                  <th>Type</th>
+                  <th>Effect_to_PrP</th>
+                  <th>Effect_to_Diseases_progression</th>
+                  <th>Materials</th>
+                  <th>Information_of_Materials</th>
+                  <th>Treatement</th>
+                  <th>Binding_site</th>
+                  <th>PubChem</th>
+                  <th>Email or ID</th>
+                  <th>Date of preparation</th>
+                </tr>
+		</tfoot>
+		<!--Code Add End-->
+
+
+                <tbody>
+                  {% include "_list.html" %}
+                </tbody>
+              </table>
+
+        </div>
+    </div>
+
+
+    <script>
+
+//Code Add
+$(document).ready(function() {
+
+
+    // Setup - add a text input to each footer cell
+    $('#list tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search" />' );
+    } );
+
+    // DataTable
+    var table = $('#list').DataTable( {
+          scrollY:        "800px",
+          scrollX:        true,
+          scrollCollapse: true,
+          paging:         true,
+          columnDefs: [
+              { width: '10%', targets: 0 }
+          ],
+          fixedColumns: true
+
+      } );
+
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+} );
+//Code Add End
+
+    </script>
+
+</body>
+</html>
+{% endblock content %}

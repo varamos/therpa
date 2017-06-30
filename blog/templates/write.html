@@ -1,0 +1,61 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>write</title>
+</head>
+<body>
+
+  <div style="float: left; width: 40%;">
+    <font size = 5><strong>&nbsp;&nbsp;[Instruction for submit data]</strong> </font><p>
+      <div class="well">
+        <p> ※ Data can be uploaded by this form or send us an email (arabe@snu.ac.kr)
+        <P> ※ Submitted data will be updated in "List for submitted data" automatically. Also, the data will be updated in "main data" mannually. The information of update will be informed in "Changes" in page of <a href="http://127.0.0.1:8000/about/#changes" target="_blank">"About".</a></p>
+        <p><b>Glossary</b></p>
+        <blockquote><font size = 2>
+        <P><b>Name</b> : A general name of small molecule (ex: quinacrine). </P>
+        <P><b>Date</b> : Accepted or published date (years and month) of each article (YYYY.MM). </P>
+        <P><b>PMID</b> : Pubmed identifier (https://www.ncbi.nlm.nih.gov/pubmed) of each article (ex: 123456). Hyperlink will be formed automatically </P>
+        <P><b>Properties</b> : An information of each small molecules (ex: a arcidin derivatives). </P>
+        <P><b>Type</b> : A role to PrP and/or PrDs progression (ex: binding to PrP). </P>
+        <P><b>Effect_to_PrP</b> : An information of small molecule role to prion protein or abnormal form of prion protein (ex: binding to PrP amyloid in brain). </P>
+        <P><b>Effect_to_Diseases_progression</b> : An information of small molecule role to progression of prion diseases (ex: enhanced prion disease transmission). </P>
+        <P><b>Materials</b> : An information of materials such as species, cells or tissues in the article to confirm roles of small molecules (ex: Hamster). </P>
+        <P><b>Information_of_Materials</b> : An detail information of each material (ex: Syrian hamster (infected 263K strain)). </P>
+        <P><b>Treatement</b> : An information of treated amount and methods of small molecule in the article (ex: 100mg/kg (i.p.) ). </P>
+        <P><b>Binding_site</b> : A binding information of small moelcues to the prion protein (ex: His-111, between 90-231). </P>
+        <P><b>Pubchem</b> : input general name of small molecule. Then, hyperlink to PubChem which is a database for compound will be formed automatically (ex: quinacrine ). </P>
+        <P><b>Email or ID</b> : Email, ID or Nickname of person who submit data. </P><br />
+        </font>
+        </blockquote>
+      </div>
+  </div>
+
+<div style="float: left; width: 33%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 blog-main">
+      <font size = 5><strong> [Submit data]</strong> </font><p>
+     <form action="" method="post" onsubmit="return confirm('Are you sure you want to submit?')">
+        {{ form.as_p }}
+        {% csrf_token %}
+      </div>
+    </div>
+
+       <button type="submit" class="btn btn-primary">Submit</button>
+     </form>
+
+  </div><P>
+</div>
+
+
+
+</body>
+</html>
+
+
+{% endblock content %}
